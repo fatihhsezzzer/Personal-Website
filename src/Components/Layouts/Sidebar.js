@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { TranslationContext } from "../Contexts/TranslationContext";
 
 const Sidebar = () => {
+  const { translate } = useContext(TranslationContext);
+
   return (
     <div className="w-full mx-auto minfo__sidebar__wrapper xl:fixed xl:top-1/2 xl:left-4 2xl:left-14 xl:-translate-y-1/2 md:max-w-sidebar xl:max-2xl:max-w-xs z-999">
       <div className="p-3 max-xl:mb-3 overflow-hidden minfo__sidebar bg-white dark:bg-nightBlack rounded-2xl">
@@ -16,7 +19,7 @@ const Sidebar = () => {
               alt="Fatih Sezer"
             />
             <img
-              src="assets/img/user-sidebar-thumb-light.png"
+              src="assets/img/foto.jpg"
               className="dark:hidden"
               alt="Fatih Sezer"
             />
@@ -26,9 +29,9 @@ const Sidebar = () => {
           </h6>
           <div className="leading-none cd-headline clip is-full-width">
             <h6 className="text-sm cd-words-wrapper designation text-theme after:!bg-theme *:font-normal">
-              <b className="is-visible">Web Developer</b>
-              <b>React Developer</b>
-              <b>.Net Developer</b>
+              <b className="is-visible">{translate("web_developer")}</b>
+              <b>{translate("react_developer")}</b>
+              <b>{translate("dotnet_developer")}</b>
             </h6>
           </div>
         </div>
@@ -36,19 +39,19 @@ const Sidebar = () => {
           <ul className="space-y-3 *:flex *:text-sm">
             <li>
               <span className="flex-1 font-medium text-black dark:text-white">
-                Country:
+                {translate("country")}:
               </span>
-              <span>Türkiye</span>
+              <span>{translate("turkey")}</span>
             </li>
             <li>
               <span className="flex-1 font-medium text-black dark:text-white">
-                City:
+                {translate("city")}:
               </span>
-              <span>İstanbul</span>
+              <span>{translate("istanbul")}</span>
             </li>
             <li>
               <span className="flex-1 font-medium text-black dark:text-white">
-                Date Of Birth:
+                {translate("date_of_birth")}:
               </span>
               <span>1998</span>
             </li>
@@ -56,7 +59,7 @@ const Sidebar = () => {
         </div>
         <div className="px-4 py-5 lg:py-6 lg:px-6 rounded-2xl md:px-8 bg-flashWhite dark:bg-metalBlack">
           <div className="text-sm font-medium text-black dark:text-white">
-            Skills
+            {translate("skills")}
           </div>
           <div className="flex items-center justify-between my-4 space-x-4 skills_circle *:space-y-2 *:text-center">
             <div className="progressCircle">
@@ -122,12 +125,12 @@ const Sidebar = () => {
           </div>
           <div className="mt-6">
             <a
-              href="mycv.pdf"
+              href="https://fatihhsezer.com.tr/Fatih_Sezer_CV.pdf"
               download
               target="_blank"
               className="text-center text-sm border border-theme bg-theme flex items-center justify-center gap-2 text-white rounded-4xl py-3.5 transition duration-300 text-[15px] font-semibold hover:bg-themeHover hover:border-themeHover"
             >
-              DOWNLOAD CV
+              {translate("download_cv")}
               <span className="animate-bounce">
                 <svg
                   width="18"

@@ -1,35 +1,82 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { TranslationContext } from "../Contexts/TranslationContext";
 
 const Skills = () => {
+  const { translate } = useContext(TranslationContext);
+
+  const skillsData = [
+    {
+      src: "assets/img/skill/react.png",
+      percent: 90,
+      label: "React",
+    },
+    {
+      src: "assets/img/skill/csharp.png",
+      percent: 90,
+      label: "C#",
+    },
+    {
+      src: "assets/img/skill/net.png",
+      percent: 90,
+      label: ".NET",
+    },
+    {
+      src: "assets/img/skill/sonsql.png",
+      percent: 90,
+      label: "SQL",
+    },
+    {
+      src: "assets/img/skill/docker.png",
+      percent: 75,
+      label: "Docker",
+    },
+    {
+      src: "assets/img/skill/html.svg",
+      percent: 95,
+      label: "HTML",
+    },
+    {
+      src: "assets/img/skill/css.svg",
+      percent: 95,
+      label: "CSS",
+    },
+    {
+      src: "assets/img/skill/js.svg",
+      percent: 75,
+      label: "JavaScript",
+    },
+  ];
+
   return (
     <div data-scroll-index="3" id="skill" className="skills-section">
       <div className="service-section relative px-5 py-8 md:p-8 bg-white dark:bg-nightBlack rounded-2xl lg:p-10 2xl:p-13">
         <div className="inline-flex items-center gap-2 px-4 py-2 text-xs tracking-wide text-black dark:text-white border lg:px-5 section-name border-platinum dark:border-greyBlack200 rounded-4xl">
           <i className="fal fa-graduation-cap text-theme"></i>
-          SKILLS
+          {translate("skillsskills")}
         </div>
         <div className="mb-8 mt-7 md:my-10 section-title">
           <h2 className="title text-[32px] md:text-4xl lg:text-5xl font-extralight text-black dark:text-white leading-1.27">
-            My <span className="font-semibold text-theme">Advantages</span>
+            {translate("my")}{" "}
+            <span className="font-semibold text-theme">
+              {translate("advantages")}
+            </span>
           </h2>
           <p className="max-w-xl mt-4 md:mt-6 subtitle">
-            I design products that are more than pretty. I make them shippable
-            and usable, tempor non mollit dolor et do aute.
+            {translate("skills_description")}
           </p>
         </div>
 
         <div className="mt-12 skills-slider xl:mt-16">
           <Swiper
             modules={[Navigation]}
-            spaceBetween={20} // Mobil uyumluluk için boşlukları ayarla
-            slidesPerView={1} // Mobilde bir slayt göster
+            spaceBetween={20}
+            slidesPerView={1}
             breakpoints={{
-              // Farklı ekran boyutları için ayarları yap
               640: {
                 slidesPerView: 1,
                 spaceBetween: 20,
@@ -48,34 +95,7 @@ const Skills = () => {
               prevEl: ".button-prev",
             }}
           >
-            {[
-              {
-                src: "assets/img/skill/react.png",
-                percent: 90,
-              },
-              {
-                src: "assets/img/skill/csharp.png",
-                percent: 90,
-              },
-              {
-                src: "assets/img/skill/net.png",
-                percent: 90,
-              },
-              {
-                src: "assets/img/skill/sonsql.png",
-                percent: 90,
-              },
-              {
-                src: "assets/img/skill/docker.png",
-                percent: 75,
-              },
-              { src: "assets/img/skill/html.svg", percent: 95 },
-              { src: "assets/img/skill/css.svg", percent: 95 },
-              {
-                src: "assets/img/skill/js.svg",
-                percent: 75,
-              },
-            ].map((skill, index) => (
+            {skillsData.map((skill, index) => (
               <SwiperSlide key={index}>
                 <div className="text-center icon mb-4">
                   <img

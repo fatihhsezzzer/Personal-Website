@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
+import { TranslationContext } from "../Contexts/TranslationContext";
 
-// Tema değiştirme fonksiyonu
 const applyTheme = (theme) => {
   if (theme === "dark") {
     document.documentElement.classList.add("dark");
@@ -10,43 +10,18 @@ const applyTheme = (theme) => {
   localStorage.setItem("theme", theme);
 };
 
-// Dil değiştirme fonksiyonu
-const applyLanguage = (language) => {
-  localStorage.setItem("language", language);
-  // Dil değişikliğine göre başka işlemler yapabilirsiniz
-};
-
-const getUrlParameter = (sParam) => {
-  const sPageURL = window.location.search.substring(1);
-  const sURLVariables = sPageURL.split("&");
-
-  for (let i = 0; i < sURLVariables.length; i++) {
-    const sParameterName = sURLVariables[i].split("=");
-
-    if (sParameterName[0] === sParam) {
-      return sParameterName[1] === undefined
-        ? true
-        : decodeURIComponent(sParameterName[1]);
-    }
-  }
-  return false;
-};
-
 const StyleSwitcher = () => {
   const [isActive, setIsActive] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-  const [language, setLanguage] = useState(
-    localStorage.getItem("language") || "tr"
-  ); // Başlangıç dili Türkçe
+  const { language, setLanguage } = useContext(TranslationContext);
+  const switcherRef = useRef(null);
 
   useEffect(() => {
-    // Uygulamanın başlangıcında kaydedilmiş temayı ve dili uygula
     applyTheme(theme);
-    applyLanguage(language);
 
-    // URL'deki 'version' ve 'lang' parametrelerini kontrol et
-    const version = getUrlParameter("version");
-    const lang = getUrlParameter("lang");
+    const urlParams = new URLSearchParams(window.location.search);
+    const version = urlParams.get("version");
+    const lang = urlParams.get("lang");
 
     if (version) {
       setTheme(version);
@@ -55,9 +30,21 @@ const StyleSwitcher = () => {
 
     if (lang) {
       setLanguage(lang);
-      applyLanguage(lang);
     }
-  }, [theme, language]);
+  }, [theme, setLanguage]);
+
+  const handleClickOutside = (event) => {
+    if (switcherRef.current && !switcherRef.current.contains(event.target)) {
+      setIsActive(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const toggleSwitcher = () => {
     setIsActive(!isActive);
@@ -68,13 +55,9 @@ const StyleSwitcher = () => {
     applyTheme(selectedTheme);
   };
 
-  const switchLanguage = (selectedLanguage) => {
-    setLanguage(selectedLanguage);
-    applyLanguage(selectedLanguage);
-  };
-
   return (
     <div
+      ref={switcherRef}
       className={`style-switcher fixed right-0 top-1/2 transform -translate-y-1/2 transition-all z-[9999] ${
         isActive ? "translate-x-0" : "translate-x-[15rem]"
       }`}
@@ -136,7 +119,7 @@ const StyleSwitcher = () => {
               language === "tr" ? "active" : ""
             }`}
             data-language="tr"
-            onClick={() => switchLanguage("tr")}
+            onClick={() => setLanguage("tr")}
           >
             <button
               className="border w-full px-4 py-4 flex flex-col gap-1 justify-center items-center dark:text-white rounded-md"
@@ -151,7 +134,7 @@ const StyleSwitcher = () => {
               language === "en" ? "active" : ""
             }`}
             data-language="en"
-            onClick={() => switchLanguage("en")}
+            onClick={() => setLanguage("en")}
           >
             <button
               className="border w-full px-4 py-4 flex flex-col gap-1 justify-center items-center dark:text-white rounded-md"

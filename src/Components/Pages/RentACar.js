@@ -6,17 +6,10 @@ const ProjectDetailsSection = () => {
 
   const technologies = [
     {
-      id: 1,
-      imgSrc: "assets/img/skill/react.png",
-      alt: "React",
-      title: "React",
-      percentage: "95%",
-    },
-    {
       id: 2,
       imgSrc: "assets/img/skill/net.png",
-      alt: ".Net Core",
-      title: ".Net Core",
+      alt: "ASP.Net Core",
+      title: "ASP.Net Core",
       percentage: "95%",
     },
     {
@@ -52,11 +45,11 @@ const ProjectDetailsSection = () => {
           </div>
 
           <h2 className="text-2xl font-semibold leading-normal text-black dark:text-white mt-7 lg:mt-10 article-title lg:text-3xl lg:leading-normal">
-            {translate("law_office_website")}
+            {translate("rent-a-car-project")}
           </h2>
           <div className="mb-4 overflow-hidden mt-7 xl:my-8 thumb rounded-xl xl:rounded-2xl">
             <img
-              src="assets/img/portfolio/law.jpeg"
+              src="assets/img/portfolio/car.png"
               className="w-full"
               alt={translate("project_thumbnail_image")}
             />
@@ -66,7 +59,7 @@ const ProjectDetailsSection = () => {
               <h6 className="text-black dark:text-white font-semibold">
                 {translate("client")}
               </h6>
-              <p className="text-regular">İkizoğlu Hukuk Bürosu</p>
+              <p className="text-regular">{translate("car_client")}</p>
             </div>
             <div>
               <h6 className="text-black dark:text-white font-semibold">
@@ -74,7 +67,6 @@ const ProjectDetailsSection = () => {
               </h6>
               <p className="text-regular">
                 {translate("web_design_development")},{" "}
-                {translate("backend_integration")},
               </p>
               <p className="text-regular">{translate("database_management")}</p>
             </div>
@@ -82,20 +74,12 @@ const ProjectDetailsSection = () => {
               <h6 className="text-black dark:text-white font-semibold">
                 {translate("project_links")}
               </h6>
+
               <p className="text-regular">
                 <a
                   className="text-blue-500 hover:underline font-bold"
                   target="_blank"
-                  href="https://fatihsezerprojects.com.tr/"
-                >
-                  Live
-                </a>
-              </p>
-              <p className="text-regular">
-                <a
-                  className="text-blue-500 hover:underline font-bold"
-                  target="_blank"
-                  href="https://github.com/fatihhsezzzer/Law-Office-React-project"
+                  href="https://github.com/fatihhsezzzer/Rent-A-Car-Project"
                 >
                   Github
                 </a>
@@ -108,28 +92,24 @@ const ProjectDetailsSection = () => {
               {translate("project_description")}
             </h3>
             <p className="text-regular !leading-[2]">
-              {translate("project_description_content")}
+              {translate("project_description_content_car")}
             </p>
             <ul className="text-regular leading-relaxed list-disc ml-6 my-4 space-y-2">
               <li>
-                <strong>{translate("language_options")}:</strong>{" "}
-                {translate("language_options_description")}
+                <strong>{translate("car_content_1_title")}:</strong>{" "}
+                {translate("car_content_1_description")}
               </li>
               <li>
-                <strong>{translate("blog_area")}:</strong>{" "}
-                {translate("blog_area_description")}
+                <strong>{translate("car_content_2_title")}:</strong>{" "}
+                {translate("car_content_2_description")}
               </li>
               <li>
-                <strong>{translate("faq_section")}:</strong>{" "}
-                {translate("faq_section_description")}
+                <strong>{translate("car_content_3_title")}:</strong>{" "}
+                {translate("car_content_3_description")}
               </li>
               <li>
-                <strong>{translate("admin_panel")}:</strong>{" "}
-                {translate("admin_panel_description")}
-              </li>
-              <li>
-                <strong>{translate("form_integration")}:</strong>{" "}
-                {translate("form_integration_description")}
+                <strong>{translate("car_content_4_title")}:</strong>{" "}
+                {translate("car_content_4_description")}
               </li>
             </ul>
 

@@ -126,6 +126,7 @@ const Navigation = () => {
           >
             <i className="fab fa-github"></i>
           </a>
+
           <a
             href="https://www.linkedin.com/in/fatihhsezzer/"
             target="_blank"
@@ -134,7 +135,14 @@ const Navigation = () => {
           >
             <i className="fab fa-linkedin-in"></i>
           </a>
-
+          <a
+            href="https://medium.com/@fatihhsezzer"
+            target="_blank"
+            className="hover:text-theme"
+            title="Contact with Medium"
+          >
+            <i className="fa-brands fa-medium"></i>
+          </a>
           <a
             href="https://www.instagram.com/fatihhsezzer/"
             target="_blank"

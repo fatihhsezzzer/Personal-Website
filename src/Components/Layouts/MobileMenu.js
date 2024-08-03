@@ -161,7 +161,14 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
         >
           <i className="fab fa-linkedin-in"></i>
         </a>
-
+        <a
+          href="https://medium.com/@fatihhsezzer"
+          target="_blank"
+          className="hover:text-theme"
+          title="Contact with Medium"
+        >
+          <i className="fa-brands fa-medium"></i>
+        </a>
         <a
           href="https://www.instagram.com/fatihhsezzer/"
           target="_blank"

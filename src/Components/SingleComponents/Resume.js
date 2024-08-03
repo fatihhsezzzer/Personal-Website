@@ -1,43 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TranslationContext } from "../Contexts/TranslationContext";
+
+const workExperiences = [
+  {
+    companyKey: "company_dataliva",
+    dateKey: "date_dataliva",
+    positionKey: "position_dataliva",
+    descriptionKey: "description_dataliva",
+  },
+  {
+    companyKey: "company_architecht",
+    dateKey: "date_architecht",
+    positionKey: "position_architecht",
+    descriptionKey: "description_architecht",
+  },
+];
+
+const educationDetails = [
+  {
+    institutionKey: "institution_sakarya",
+    dateKey: "date_sakarya",
+    degreeKey: "degree_sakarya",
+    descriptionKey: "description_sakarya",
+  },
+];
 
 const ResumeSection = () => {
-  const workExperiences = [
-    {
-      company: "Dataliva",
-      date: "July, 2024 - Current",
-      position: "Software Developer",
-      description:
-        "I specialize in .NET and SQL technologies. I develop, maintain, and enhance applications using the .NET framework (C#, ASP.NET, .NET Core). Additionally, I write database queries, stored procedures, and functions using T-SQL, aiming to improve database performance. We leverage these technologies to meet service requirements and deliver high-performance solutions.",
-    },
-    {
-      company: "Architecht",
-      date: "August-2023 - March-2024",
-      position: "Software Developer",
-      description:
-        "I have worked on projects involving .NET, .NET Core, ASP.NET, React, MSSQL, HTML, and CSS. Additionally, I have developed WPF screens, providing comprehensive solutions across various technologies and platforms.",
-    },
-  ];
-
-  const educationDetails = [
-    {
-      institution: "Sakarya Universty",
-      date: "2020-2024",
-      degree: "Information System Engineering",
-      description:
-        "I graduated from my university's Information Systems Engineering department. I worked on projects involving .NET, .NET Core, ASP.NET, React, MSSQL, HTML and CSS. I have also developed extensive applications across various technologies and platforms.",
-    },
-  ];
+  const { translate } = useContext(TranslationContext);
 
   return (
     <div data-scroll-index="4" id="resume">
       <div className="resume-section px-5 py-8 md:p-8 bg-white dark:bg-nightBlack rounded-2xl lg:p-10 2xl:p-13">
         <div className="inline-flex items-center gap-2 px-4 py-2 text-xs tracking-wide text-black dark:text-white border lg:px-5 section-name border-platinum dark:border-greyBlack200 rounded-4xl">
           <i className="fal fa-folder-open text-theme"></i>
-          RESUME
+          {translate("resume")}
         </div>
         <div className="mb-8 mt-7 md:my-10 section-title">
-          <h2 className="title text-[32px] md:text-4xl lg:text-5xl font-extralight text-black dark:text-white leading-1.27">
-            Work <span className="font-semibold text-theme">Experience</span>
+          <h2 className="title text-[32px] md:text-4xl lg:text-5xl font-extralight text-black dark:text-white leading-1.27 font-semibold text-theme">
+            {translate("work_experience")}
           </h2>
           <p className="max-w-xl mt-4 md:mt-6 subtitle"></p>
         </div>
@@ -47,17 +47,17 @@ const ResumeSection = () => {
               <li key={index}>
                 <div className="flex items-center justify-between mb-5 md:w-64 md:block md:mb-0">
                   <h6 className="text-sm font-medium text-black dark:text-white text-opacity-60 md:text-base md:text-opacity-100">
-                    {exp.company}
+                    {translate(exp.companyKey)}
                   </h6>
                   <p className="text-[13px] md:text-sm text-theme">
-                    {exp.date}
+                    {translate(exp.dateKey)}
                   </p>
                 </div>
                 <div className="md:flex-1 md:pl-16 relative md:before:content-[''] md:before:absolute md:before:-left-1 md:before:top-3 md:before:w-2 md:before:h-2 md:before:bg-theme md:before:rounded-full md:before:shadow-dots_glow">
                   <h4 className="text-xl xl:text-2xl font-medium xl:font-medium leading-7 text-black dark:text-white mb-2.5">
-                    {exp.position}
+                    {translate(exp.positionKey)}
                   </h4>
-                  <p>{exp.description}</p>
+                  <p>{translate(exp.descriptionKey)}</p>
                 </div>
               </li>
             ))}
@@ -65,8 +65,8 @@ const ResumeSection = () => {
         </div>
         <br />
         <div className="mb-8 mt-7 md:my-10 section-title">
-          <h2 className="title text-[32px] md:text-4xl lg:text-5xl font-extralight text-black dark:text-white leading-1.27">
-            My <span className="font-semibold text-theme">Education</span>
+          <h2 className="title text-[32px] md:text-4xl lg:text-5xl font-extralight text-black dark:text-white leading-1.27 font-semibold text-theme">
+            {translate("my_education")}
           </h2>
           <p className="max-w-xl mt-4 md:mt-6 subtitle"></p>
         </div>
@@ -76,17 +76,17 @@ const ResumeSection = () => {
               <li key={index}>
                 <div className="flex items-center justify-between mb-5 md:w-64 md:block md:mb-0">
                   <h6 className="text-sm font-medium text-black dark:text-white text-opacity-60 md:text-base md:text-opacity-100">
-                    {edu.institution}
+                    {translate(edu.institutionKey)}
                   </h6>
                   <p className="text-[13px] md:text-sm text-theme">
-                    {edu.date}
+                    {translate(edu.dateKey)}
                   </p>
                 </div>
                 <div className="md:flex-1 md:pl-16 relative md:before:content-[''] md:before:absolute md:before:-left-1 md:before:top-3 md:before:w-2 md:before:h-2 md:before:bg-theme md:before:rounded-full md:before:shadow-dots_glow">
                   <h4 className="text-xl xl:text-2xl font-medium xl:font-medium leading-7 text-black dark:text-white mb-2.5">
-                    {edu.degree}
+                    {translate(edu.degreeKey)}
                   </h4>
-                  <p>{edu.description}</p>
+                  <p>{translate(edu.descriptionKey)}</p>
                 </div>
               </li>
             ))}

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { TranslationContext } from "../Contexts/TranslationContext";
 
 const portfolioItems = [
   {
@@ -22,7 +23,7 @@ const portfolioItems = [
     imgSrc: "assets/img/portfolio/car.png",
     title: "Rental",
     subtitle: "Car",
-    link: "project-single.html",
+    link: "rent-a-car",
     tags: ["ASP.NET MVC"],
     spanClass: "md:col-span-1",
   },
@@ -30,35 +31,35 @@ const portfolioItems = [
     imgSrc: "assets/img/portfolio/aylin2.png",
     title: "Toy",
     subtitle: "Shop",
-    link: "project-single.html",
+    link: "aylin-toy",
     tags: ["React-.Net"],
     spanClass: "md:col-span-2",
   },
 ];
 
 const PortfolioSection = () => {
+  const { translate } = useContext(TranslationContext);
+
   return (
     <div data-scroll-index="5" id="portfolio">
       <div className="portfolio-section px-5 py-8 md:p-8 bg-white dark:bg-nightBlack rounded-2xl lg:p-10 2xl:p-13">
         <div className="inline-flex items-center gap-2 px-4 py-2 text-xs tracking-wide text-black dark:text-white border lg:px-5 section-name border-platinum dark:border-greyBlack200 rounded-4xl">
           <i className="fal fa-tasks-alt text-theme"></i>
-          PORTFOLIO
+          {translate("portfolio")}
         </div>
         <div className="mt-5 mb-8 md:my-10 section-title">
-          <h2 className="title text-[32px] md:text-4xl lg:text-5xl font-extralight text-black dark:text-white leading-1.27">
-            Featured
-            <span className="font-semibold text-theme">Projects</span>
+          <h2 className="title text-[32px] md:text-4xl lg:text-5xl font-extralight text-black dark:text-white leading-1.27 font-semibold text-theme">
+            {translate("featured_projects")}
           </h2>
           <p className="max-w-xl mt-4 md:mt-6 subtitle">
-            I design products that are more than pretty. I make them shippable
-            and usable, ttempor non mollit dolor et do aute.
+            {translate("portfolio_description")}
           </p>
         </div>
         <div className="portfolio_wrapper grid sm:grid-cols-2 gap-4 lg:gap-7.5 *:relative *:z-1">
           {portfolioItems.map((item, index) => (
             <div key={index} className={`item group ${item.spanClass}`}>
-              <a
-                href={item.link}
+              <Link
+                to={item.link}
                 className="block p-3 overflow-hidden border md:p-4 rounded-xl border-platinum dark:border-greyBlack"
               >
                 <div className="img-wrapper">
@@ -73,7 +74,7 @@ const PortfolioSection = () => {
                   {item.title}
                   <span> {item.subtitle} </span>
                 </div>
-              </a>
+              </Link>
               <ul className="absolute z-10 transition-all duration-500 opacity-0 md:top-9 md:right-9 top-6 right-6 group-hover:opacity-100">
                 {item.tags.map((tag, tagIndex) => (
                   <li key={tagIndex}>
@@ -94,7 +95,7 @@ const PortfolioSection = () => {
             to="/portfolio"
             className="inline-flex items-center gap-2 text-[15px] font-medium border border-theme bg-theme text-white py-4.5 px-9 rounded-4xl leading-none transition-all duration-300 hover:bg-themeHover hover:border-themeHover"
           >
-            More Projects
+            {translate("more_projects")}
           </Link>
         </div>
       </div>

@@ -7,38 +7,38 @@ const ProjectDetailsSection = () => {
   const technologies = [
     {
       id: 1,
-      imgSrc: "assets/img/skill/react.png",
-      alt: "React",
-      title: "React",
+      imgSrc: "assets/img/skill/net.png",
+      alt: "ASP.Net Core",
+      title: "ASP.Net Core",
       percentage: "95%",
     },
     {
       id: 2,
-      imgSrc: "assets/img/skill/net.png",
-      alt: ".Net Core",
-      title: ".Net Core",
-      percentage: "95%",
+      imgSrc: "assets/img/skill/react.png",
+      alt: "React",
+      title: "React",
+      percentage: "90%",
     },
     {
       id: 3,
+      imgSrc: "assets/img/skill/js.svg",
+      alt: "JavaScript",
+      title: "JavaScript",
+      percentage: "85%",
+    },
+    {
+      id: 4,
       imgSrc: "assets/img/skill/html.svg",
       alt: "HTML5",
       title: "HTML5",
       percentage: "90%",
     },
     {
-      id: 4,
+      id: 5,
       imgSrc: "assets/img/skill/css.svg",
       alt: "CSS3",
       title: "CSS3",
       percentage: "80%",
-    },
-    {
-      id: 5,
-      imgSrc: "assets/img/skill/js.svg",
-      alt: "JavaScript",
-      title: "JavaScript",
-      percentage: "70%",
     },
   ];
 
@@ -52,11 +52,11 @@ const ProjectDetailsSection = () => {
           </div>
 
           <h2 className="text-2xl font-semibold leading-normal text-black dark:text-white mt-7 lg:mt-10 article-title lg:text-3xl lg:leading-normal">
-            {translate("law_office_website")}
+            {translate("aylin_toys_ecommerce_platform")}
           </h2>
           <div className="mb-4 overflow-hidden mt-7 xl:my-8 thumb rounded-xl xl:rounded-2xl">
             <img
-              src="assets/img/portfolio/law.jpeg"
+              src="assets/img/portfolio/aylin2.png"
               className="w-full"
               alt={translate("project_thumbnail_image")}
             />
@@ -66,7 +66,7 @@ const ProjectDetailsSection = () => {
               <h6 className="text-black dark:text-white font-semibold">
                 {translate("client")}
               </h6>
-              <p className="text-regular">İkizoğlu Hukuk Bürosu</p>
+              <p className="text-regular">{translate("aylin_toys")}</p>
             </div>
             <div>
               <h6 className="text-black dark:text-white font-semibold">
@@ -86,16 +86,7 @@ const ProjectDetailsSection = () => {
                 <a
                   className="text-blue-500 hover:underline font-bold"
                   target="_blank"
-                  href="https://fatihsezerprojects.com.tr/"
-                >
-                  Live
-                </a>
-              </p>
-              <p className="text-regular">
-                <a
-                  className="text-blue-500 hover:underline font-bold"
-                  target="_blank"
-                  href="https://github.com/fatihhsezzzer/Law-Office-React-project"
+                  href="https://github.com/fatihhsezzzer/Aylin-Toys-E-Commerce-Project"
                 >
                   Github
                 </a>
@@ -105,31 +96,23 @@ const ProjectDetailsSection = () => {
 
           <div>
             <h3 className="mb-3 text-lg font-medium text-black dark:text-white xl:text-2xl">
-              {translate("project_description")}
+              {translate("overview")}
             </h3>
             <p className="text-regular !leading-[2]">
-              {translate("project_description_content")}
+              {translate("project_description_content_toys")}
             </p>
             <ul className="text-regular leading-relaxed list-disc ml-6 my-4 space-y-2">
               <li>
-                <strong>{translate("language_options")}:</strong>{" "}
-                {translate("language_options_description")}
+                <strong>{translate("ui_features")}:</strong>{" "}
+                {translate("ui_features_description")}
               </li>
               <li>
-                <strong>{translate("blog_area")}:</strong>{" "}
-                {translate("blog_area_description")}
+                <strong>{translate("functionality")}:</strong>{" "}
+                {translate("functionality_description")}
               </li>
               <li>
-                <strong>{translate("faq_section")}:</strong>{" "}
-                {translate("faq_section_description")}
-              </li>
-              <li>
-                <strong>{translate("admin_panel")}:</strong>{" "}
-                {translate("admin_panel_description")}
-              </li>
-              <li>
-                <strong>{translate("form_integration")}:</strong>{" "}
-                {translate("form_integration_description")}
+                <strong>{translate("security_session_management")}:</strong>{" "}
+                {translate("security_session_management_description")}
               </li>
             </ul>
 
