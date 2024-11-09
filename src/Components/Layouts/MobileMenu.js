@@ -185,7 +185,7 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
           <i className="fab fa-whatsapp"></i>
         </a>
       </div>
-      {/* Social Share Icon End  */}
+   
     </div>
   );
 };
