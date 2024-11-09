@@ -14,7 +14,7 @@ const TrackUser = () => {
     trackUser();
   }, []);
 
-  return null; // Bu bileşen herhangi bir şey render etmeyecek
+  return null; 
 };
 
 export default TrackUser;
