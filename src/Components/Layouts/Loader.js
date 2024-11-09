@@ -6,16 +6,16 @@ const Preloader = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Kullanıcı cihazını tespit et
+    
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
       navigator.userAgent
     );
 
     if (isMobile) {
-      // Mobil cihazlarda preloader'ı hemen kaldır
+   
       setLoading(false);
     } else {
-      // Diğer cihazlarda preloader'ı 2 saniye sonra kaldır
+     
       const timer1 = setTimeout(() => {
         setLoading(false);
       }, 2000);
